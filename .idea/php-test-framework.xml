@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpTestFrameworkSettings">
+    <test_tools>
+      <tool tool_name="Pest">
+        <settings>
+          <configurations>
+            <local_configuration configuration_file_path="$PROJECT_DIR$/job-board/phpunit.xml" executable_path="$PROJECT_DIR$/job-board/vendor/pestphp/pest/bin/pest" use_configuration_file="true" />
+            <local_configuration configuration_file_path="$PROJECT_DIR$/bookReviewPortal/phpunit.xml" executable_path="$PROJECT_DIR$/bookReviewPortal/vendor/pestphp/pest/bin/pest" use_configuration_file="true" />
+            <local_configuration configuration_file_path="$PROJECT_DIR$/eventsManagement/phpunit.xml" executable_path="$PROJECT_DIR$/eventsManagement/vendor/pestphp/pest/bin/pest" use_configuration_file="true" />
+            <local_configuration configuration_file_path="$PROJECT_DIR$/toDoList/phpunit.xml" executable_path="$PROJECT_DIR$/toDoList/vendor/pestphp/pest/bin/pest" use_configuration_file="true" />
+          </configurations>
+        </settings>
+      </tool>
+    </test_tools>
+  </component>
+</project>
