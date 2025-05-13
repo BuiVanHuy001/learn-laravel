@@ -10,6 +10,32 @@
     @vite('resources/js/app.js')
 </head>
 <body class="mx-auto mt-10 max-w-2xl bg-gradient-to-r from-indigo-100 via-sky-100 to-emerald-500 from-10% via-30% to-80%">
+<div class="mb-5 flex items-center justify-between font-semibold font-xl">
+    <ul>
+        <li ><a href="{{ route('jobs.index') }}">Home</a></li>
+    </ul>
+    <ul class="flex items-center space-x-4">
+        @auth
+            <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 size-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                </svg>
+            {{ auth()->user()->name ?? 'Guest' }}
+            <li>
+            <li>
+                <form method="POST" action="{{ route('auth.destroy') }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="font-semibold text-slate-900">Logout</button>
+                </form>
+            </li>
+        @else
+            <a href="{{ route('auth.create') }}">Sign in</a>
+        @endauth
+    </ul>
+</div>
+{{--<h1 class="mb-5 flex items-center font-semibold text-slate-900">--}}
+{{--</h1>--}}
 {{ $slot }}
 </body>
 </html>

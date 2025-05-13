@@ -28,9 +28,9 @@
         </div>
     @foreach($jobs as $job)
         <x-card class="mb-4" :$job>
-            <x-button :href="route('jobs.show', $job)">
+            <x-link-button :href="route('jobs.show', $job)">
                 Show more
-            </x-button>
+            </x-link-button>
         </x-card>
     @endforeach
 </x-layout>

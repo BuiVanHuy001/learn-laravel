@@ -6,5 +6,5 @@
 			</svg>
 		</button>
 	@endif
-	<input x-ref="input-{{ $name }}" type="text" placeholder="{{ $placeholder }}" value="{{ $value }}" name="{{ $name }}" id="{{ $name }}" class="w-full rounded-md border-0 py-1.5 px-2.5 ring-1 pr-6 ring-slate-300 placeholder:text-slate-400 focus:ring-2"/>
+	<input x-ref="input-{{ $name }}" type="{{ $type }}" placeholder="{{ $placeholder }}" value="{{ $value }}" name="{{ $name }}" id="{{ $name }}" class="w-full rounded-md border-0 py-1.5 px-2.5 ring-1 pr-6 ring-slate-300 placeholder:text-slate-400 focus:ring-2"/>
 </div>

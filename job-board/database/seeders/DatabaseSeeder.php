@@ -2,24 +2,41 @@
 
 namespace Database\Seeders;
 
+use App\Models\Employer;
 use App\Models\Job;
+use App\Models\JobApplication;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Factories\JobApplicationFactory;
 use Illuminate\Database\Seeder;
+
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
-        Job::factory(100)->create();
+        $users = User::factory(100)->create()->shuffle();
 
-//        User::factory()->create([
-//            'name' => 'Test User',
-//            'email' => 'test@example.com',
-//        ]);
+        for ($i = 0; $i < 20; $i++) {
+            Employer::factory()->create(['user_id' => $users->pop()->id]);
+        }
+
+        $employers = Employer::all();
+
+        Job::factory()->count(150)->create(['employer_id' => function () use ($employers) {
+            return $employers->random()->id;
+        }]);
+
+        User::factory()->create(['name' => 'Bui Van Huy', 'email' => 'huy@gmail.com',]);
+
+        foreach ($users as $user) {
+            $jobs = Job::inRandomOrder()->take(rand(0, 5))->get();
+            foreach ($jobs as $job) {
+                JobApplication::factory()->create([
+                    'user_id' => $user->id,
+                    'job_id' => $job->id,
+                ]);
+            }
+        }
     }
 }

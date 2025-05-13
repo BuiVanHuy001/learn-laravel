@@ -17,7 +17,6 @@ return new class extends Migration
 
             $table->string('title');
             $table->text('description');
-            $table->string('company');
             $table->string('location');
             $table->enum('experience', Job::$experiences);
             $table->enum('category', Job::$categories);
