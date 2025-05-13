@@ -1,5 +1,5 @@
 <x-layout>
-    <x-breadcrums :links="['Jobs' => route('jobs.index')]"/>
+    <x-breadcrumbs :links="['Jobs' => route('jobs.index')]"/>
     <div x-data="" class="mb-4 rounded-md border border-gray-300 bg-white p-4 text-sm shadow-sm">
         <form x-ref="filter" action="{{ route('jobs.index') }}" method="GET">
             <div class="mb-4 grid grid-cols-2 gap-4">

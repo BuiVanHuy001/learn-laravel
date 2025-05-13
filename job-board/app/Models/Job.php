@@ -47,4 +47,11 @@
                 $query->where('category', $category);
             });
         }
+
+        public function isAppliedBy(User $user)
+        {
+            return $this->where('id', $this->id)->whereHas('jobApplications', function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            })->exists();
+        }
     }
