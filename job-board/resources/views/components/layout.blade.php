@@ -25,6 +25,9 @@
                 </a>
             <li>
             <li>
+                <a href="{{ route('my-job.index') }}">My job offers</a>
+            </li>
+            <li>
                 <form method="POST" action="{{ route('auth.destroy') }}">
                     @csrf
                     @method('DELETE')
@@ -36,10 +39,22 @@
         @endauth
     </ul>
 </div>
+
 @if(session('success'))
-    <div x-data="{ open: true }" x-show="open" role="alert" class="rounded-md border-l-4 border-green-500 bg-green-300 p-4 text-green-900 opacity-75 relative">
+    <div x-data="{ open: true }" x-show="open" role="alert" class="rounded-md border-l-4 border-green-500 bg-green-300 p-4 text-green-900 opacity-75 relative mb-4">
         <p class="font-bold">Success</p>
-        <p>{{ session('success') ?? 'Login successfully' }}</p>
+        <p>{{ session('success')}}</p>
+        <button class="absolute top-0 right-0 p-1.5 rounded-md focus:outline-none focus:ring-2" @click="open = false">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
+            </svg>
+        </button>
+    </div>
+@endif
+@if(session('error'))
+    <div x-data="{ open: true }" x-show="open" role="alert" class="rounded-md border-l-4 border-red-500 bg-red-300 p-4 text-red-900 opacity-75 relative mb-4">
+        <p class="font-bold">Error</p>
+        <p>{{ session('error')}}</p>
         <button class="absolute top-0 right-0 p-1.5 rounded-md focus:outline-none focus:ring-2" @click="open = false">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
@@ -49,4 +64,7 @@
 @endif
 {{ $slot }}
 </body>
+<script>
+    console.log({{ session('success') }});
+</script>
 </html>

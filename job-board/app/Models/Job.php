@@ -14,7 +14,7 @@
     {
         /** @use HasFactory<JobFactory> */
         use HasFactory;
-
+        protected $fillable = ['title', 'description', 'location', 'salary', 'experience', 'category'];
         public static array $experiences= ['entry', 'middle', 'senior', 'fresher'];
         public static array $categories= ['it', 'sales', 'marketing', 'finance'];
 
