@@ -16,33 +16,9 @@ class JobController extends Controller
         return view('jobs.index', ['jobs' => Job::with('employer')->filters($filters)->latest()->get()]);
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
     public function show(Job $job)
     {
         return view('jobs.show', ['job' => $job->load('employer')]);
     }
 
-    public function edit(string $id)
-    {
-        //
-    }
-
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    public function destroy(string $id)
-    {
-        //
-    }
 }

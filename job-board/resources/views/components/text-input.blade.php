@@ -16,7 +16,7 @@
         'ring-slate-300' => !$errors->has($name),
         'ring-red-500' => $errors->has($name),
         ])
-        >{{ old($name) }}</textarea>
+        >{{ old($name) ?? $value }}</textarea>
     @endif
     @error($name)
     <p class="text-xs text-red-500 mt-1">{{ $message }}</p>

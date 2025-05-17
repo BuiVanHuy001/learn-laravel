@@ -8,12 +8,13 @@
     use Illuminate\Database\Eloquent\Model;
     use Illuminate\Database\Eloquent\Relations\BelongsTo;
     use Illuminate\Database\Eloquent\Relations\HasMany;
+    use Illuminate\Database\Eloquent\SoftDeletes;
     use Illuminate\Database\Query\Builder;
 
     class Job extends Model
     {
         /** @use HasFactory<JobFactory> */
-        use HasFactory;
+        use HasFactory, SoftDeletes;
         protected $fillable = ['title', 'description', 'location', 'salary', 'experience', 'category'];
         public static array $experiences= ['entry', 'middle', 'senior', 'fresher'];
         public static array $categories= ['it', 'sales', 'marketing', 'finance'];
